@@ -3,41 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elite Interior Design Studio</title>
+<title>Grand Interior Design Studio</title>
 
 <style>
-:root {
-  --bg: #f5f5f5;
-  --text: #222;
-  --card: #fff;
-  --accent: #111;
-}
-
-body.dark {
-  --bg: #121212;
-  --text: #f5f5f5;
-  --card: #1e1e1e;
-  --accent: #ffffff;
-}
-
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  transition: 0.3s;
+  background: #f4f4f4;
+  color: #222;
 }
 
-/* HEADER */
 header {
-  position: sticky;
-  top: 0;
-  background: var(--accent);
+  background: #111;
   color: white;
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 20px;
+  text-align: center;
 }
 
 nav a {
@@ -46,38 +26,19 @@ nav a {
   text-decoration: none;
 }
 
-/* HERO SLIDER */
 .hero {
-  height: 420px;
-  position: relative;
-  overflow: hidden;
-}
-
-.slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transition: 1s;
-}
-
-.slide.active {
-  opacity: 1;
-}
-
-.hero-text {
-  position: absolute;
-  bottom: 40px;
-  left: 40px;
-  background: rgba(0,0,0,0.5);
+  background: url('https://images.unsplash.com/photo-1505691938895-1758d7feb511') center/cover;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: white;
-  padding: 20px;
+  font-size: 32px;
+  font-weight: bold;
+  text-shadow: 0 2px 5px black;
 }
 
-/* SECTION */
-section {
+.section {
   padding: 50px;
   text-align: center;
 }
@@ -86,7 +47,16 @@ h2 {
   margin-bottom: 20px;
 }
 
-/* CARDS */
+.filter-btns button {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+  background: #111;
+  color: white;
+  border-radius: 5px;
+}
+
 .grid {
   display: flex;
   flex-wrap: wrap;
@@ -95,17 +65,16 @@ h2 {
 }
 
 .card {
-  width: 280px;
-  background: var(--card);
+  width: 260px;
+  background: white;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .card img {
   width: 100%;
-  height: 180px;
+  height: 170px;
   object-fit: cover;
 }
 
@@ -118,223 +87,179 @@ h2 {
 }
 
 .price {
-  font-weight: bold;
   color: green;
+  font-weight: bold;
   margin-bottom: 10px;
 }
 
-/* PRICING */
-.price-card {
-  background: var(--card);
-  padding: 20px;
-  border-radius: 10px;
-  width: 250px;
-}
-
-button {
-  padding: 10px;
-  border: none;
-  background: var(--accent);
-  color: white;
-  cursor: pointer;
-}
-
-/* CONTACT */
-input, textarea {
-  width: 80%;
-  padding: 10px;
-  margin: 10px 0;
-}
-
-/* FOOTER */
 footer {
-  background: var(--accent);
+  background: #111;
   color: white;
   text-align: center;
   padding: 20px;
-}
-
-/* MODAL */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.8);
-  justify-content: center;
-  align-items: center;
-}
-
-.modal img {
-  width: 70%;
-  border-radius: 10px;
-}
-
-.close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  color: white;
-  font-size: 30px;
-  cursor: pointer;
-}
-
-/* DARK BUTTON */
-.toggle {
-  cursor: pointer;
-  background: white;
-  color: black;
-  padding: 5px 10px;
+  margin-top: 40px;
 }
 </style>
-
 </head>
 
 <body>
 
 <header>
-  <div><b>Elite Interiors</b></div>
+  <h1>Grand Interior Design Studio</h1>
   <nav>
     <a href="#home">Home</a>
     <a href="#gallery">Gallery</a>
     <a href="#pricing">Pricing</a>
-    <a href="#contact">Contact</a>
   </nav>
-  <div class="toggle" onclick="toggleDark()">Dark Mode</div>
 </header>
 
-<!-- HERO -->
 <div class="hero" id="home">
-
-  <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85')"></div>
-  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6')"></div>
-  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1524758631624-e2822e304c36')"></div>
-
-  <div class="hero-text">
-    <h1>Modern Interior Design</h1>
-    <p>Luxury House & Office Spaces</p>
-  </div>
+  Luxury House & Office Interiors
 </div>
 
-<!-- GALLERY -->
-<section id="gallery">
-<h2>Interior Gallery</h2>
+<!-- FILTER -->
+<section class="section" id="gallery">
+
+<h2>Our Interior Designs</h2>
+
+<div class="filter-btns">
+  <button onclick="filter('all')">All</button>
+  <button onclick="filter('house')">House</button>
+  <button onclick="filter('office')">Office</button>
+</div>
 
 <div class="grid">
 
-  <div class="card" onclick="openModal(this)">
+  <!-- HOUSE ITEMS -->
+  <div class="card house">
     <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6">
-    <h3>Living Room</h3>
-    <p>Modern house interior</p>
+    <h3>Modern Living Room</h3>
+    <p>Elegant house design</p>
+    <div class="price">$1200</div>
   </div>
 
-  <div class="card" onclick="openModal(this)">
+  <div class="card house">
     <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae">
-    <h3>Bedroom</h3>
-    <p>Luxury comfort space</p>
+    <h3>Luxury Bedroom</h3>
+    <p>Comfort interior</p>
+    <div class="price">$1500</div>
   </div>
 
-  <div class="card" onclick="openModal(this)">
+  <div class="card house">
+    <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36">
+    <h3>Minimal Kitchen</h3>
+    <p>Clean modern kitchen</p>
+    <div class="price">$900</div>
+  </div>
+
+  <div class="card house">
+    <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
+    <h3>Classic Hall</h3>
+    <p>Luxury house hall</p>
+    <div class="price">$1100</div>
+  </div>
+
+  <div class="card house">
+    <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858">
+    <h3>Dining Area</h3>
+    <p>Family dining setup</p>
+    <div class="price">$800</div>
+  </div>
+
+  <div class="card house">
+    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85">
+    <h3>Elegant Lounge</h3>
+    <p>Relaxing space</p>
+    <div class="price">$1300</div>
+  </div>
+
+  <!-- OFFICE ITEMS -->
+  <div class="card office">
     <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
-    <h3>Office</h3>
-    <p>Corporate workspace</p>
+    <h3>Corporate Office</h3>
+    <p>Professional workspace</p>
+    <div class="price">$2000</div>
   </div>
 
-  <div class="card" onclick="openModal(this)">
+  <div class="card office">
     <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72">
     <h3>Startup Office</h3>
-    <p>Creative workspace</p>
+    <p>Creative setup</p>
+    <div class="price">$1800</div>
+  </div>
+
+  <div class="card office">
+    <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36">
+    <h3>Meeting Room</h3>
+    <p>Board meeting space</p>
+    <div class="price">$1400</div>
+  </div>
+
+  <div class="card office">
+    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786">
+    <h3>Executive Cabin</h3>
+    <p>Premium office cabin</p>
+    <div class="price">$2200</div>
+  </div>
+
+  <div class="card office">
+    <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a">
+    <h3>Work Desk Area</h3>
+    <p>Modern productivity space</p>
+    <div class="price">$1000</div>
+  </div>
+
+  <div class="card office">
+    <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36">
+    <h3>Creative Studio</h3>
+    <p>Designer workspace</p>
+    <div class="price">$1700</div>
   </div>
 
 </div>
 </section>
 
 <!-- PRICING -->
-<section id="pricing">
+<section class="section" id="pricing">
 <h2>Pricing Plans</h2>
 
 <div class="grid">
 
-  <div class="price-card">
+  <div class="card">
     <h3>Basic</h3>
-    <p>Single room design</p>
+    <p>1 Room Design</p>
     <div class="price">$500</div>
-    <button>Choose</button>
   </div>
 
-  <div class="price-card">
+  <div class="card">
     <h3>Standard</h3>
-    <p>Full home interior</p>
+    <p>Full House Design</p>
     <div class="price">$1500</div>
-    <button>Choose</button>
   </div>
 
-  <div class="price-card">
+  <div class="card">
     <h3>Premium</h3>
-    <p>Luxury home + office</p>
+    <p>House + Office</p>
     <div class="price">$3000</div>
-    <button>Choose</button>
   </div>
 
 </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section>
-<h2>Client Reviews</h2>
-<p>"Amazing design quality!" - Rahul</p>
-<p>"Best office setup ever." - Priya</p>
-<p>"Highly recommended service." - Aman</p>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-<h2>Contact Us</h2>
-
-<form>
-  <input type="text" placeholder="Your Name"><br>
-  <input type="email" placeholder="Email"><br>
-  <textarea rows="4" placeholder="Message"></textarea><br>
-  <button type="submit">Send</button>
-</form>
 </section>
 
 <footer>
-<p>© 2026 Elite Interior Design Studio</p>
+  <p>© 2026 Grand Interior Design Studio</p>
 </footer>
 
-<!-- MODAL -->
-<div class="modal" id="modal">
-  <span class="close" onclick="closeModal()">&times;</span>
-  <img id="modalImg">
-</div>
-
 <script>
-// SLIDER
-let slides = document.querySelectorAll('.slide');
-let index = 0;
-
-setInterval(() => {
-  slides[index].classList.remove('active');
-  index = (index + 1) % slides.length;
-  slides[index].classList.add('active');
-}, 3000);
-
-// DARK MODE
-function toggleDark() {
-  document.body.classList.toggle('dark');
-}
-
-// MODAL
-function openModal(el) {
-  document.getElementById('modal').style.display = "flex";
-  document.getElementById('modalImg').src = el.querySelector('img').src;
-}
-
-function closeModal() {
-  document.getElementById('modal').style.display = "none";
+function filter(type) {
+  let cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    if (type === 'all') {
+      card.style.display = 'block';
+    } else {
+      card.style.display = card.classList.contains(type) ? 'block' : 'none';
+    }
+  });
 }
 </script>
 
