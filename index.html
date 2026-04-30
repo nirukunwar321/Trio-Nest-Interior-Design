@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Interior Design Studio Pro</title>
+<title>Interior Design Ecommerce</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -15,8 +15,8 @@ background:#f4f4f4;
 header{
 background:#111;
 color:white;
-text-align:center;
 padding:20px;
+text-align:center;
 }
 
 nav{
@@ -32,22 +32,20 @@ padding:12px 15px;
 text-decoration:none;
 }
 
-nav a:hover{background:#444;}
-
 .hero{
-height:420px;
+height:380px;
 background:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80') center/cover;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:40px;
 color:white;
+font-size:38px;
 font-weight:bold;
 text-shadow:2px 2px 10px black;
 }
 
 .section{
-padding:50px 20px;
+padding:40px 20px;
 text-align:center;
 }
 
@@ -64,10 +62,7 @@ background:white;
 border-radius:10px;
 overflow:hidden;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
-transition:0.3s;
 }
-
-.card:hover{transform:scale(1.03);}
 
 .card img{
 width:100%;
@@ -75,28 +70,78 @@ height:180px;
 object-fit:cover;
 }
 
-.card h3{margin:10px 0;}
+.card h3{
+margin:10px 0;
+}
 
 .price{
 color:green;
 font-weight:bold;
-padding-bottom:10px;
 }
 
-.tag{
-display:inline-block;
+button{
 background:#111;
 color:white;
-padding:4px 8px;
-font-size:12px;
-border-radius:4px;
-margin-bottom:5px;
+border:none;
+padding:10px;
+cursor:pointer;
+width:100%;
 }
 
-.package{
-padding:10px;
-text-align:left;
+button:hover{
+background:#444;
+}
+
+/* CART BOX */
+.cart{
+position:fixed;
+right:20px;
+top:20px;
+background:white;
+padding:15px;
+width:250px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+border-radius:10px;
+}
+
+.cart h3{
+margin-top:0;
+}
+
+.cart-item{
 font-size:14px;
+margin:5px 0;
+}
+
+.total{
+font-weight:bold;
+margin-top:10px;
+}
+
+/* CHECKOUT */
+.checkout{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+display:none;
+align-items:center;
+justify-content:center;
+}
+
+.checkout-box{
+background:white;
+padding:20px;
+width:300px;
+border-radius:10px;
+text-align:center;
+}
+
+.close{
+background:red;
+margin-top:10px;
 }
 
 footer{
@@ -112,159 +157,150 @@ margin-top:40px;
 <body>
 
 <header>
-<h1>Elite Interior Design Studio</h1>
+<h1>Interior Design Ecommerce Store</h1>
 </header>
 
 <nav>
-<a href="#house">House</a>
-<a href="#office">Office</a>
-<a href="#hotel">Hotel</a>
-<a href="#kitchen">Kitchen</a>
-<a href="#garden">Garden</a>
+<a href="#products">Products</a>
 </nav>
 
 <div class="hero">
-Modern Interior Design Collection
+Luxury Interiors & Garden Designs
 </div>
 
-<!-- HOUSE -->
-<div class="section" id="house">
-<h2>House Interiors</h2>
+<!-- CART -->
+<div class="cart">
+<h3>🛒 Cart</h3>
+<div id="cartItems"></div>
+<div class="total">Total: $<span id="total">0</span></div>
+<button onclick="openCheckout()">Checkout</button>
+</div>
+
+<!-- PRODUCTS -->
+<div class="section" id="products">
+<h2>All Interior Products</h2>
 
 <div class="grid">
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=800&q=80">
-<h3>Modern Bedroom</h3>
-<div class="price">$3200</div>
-</div>
-
+<!-- ITEM 1 -->
 <div class="card">
 <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=800&q=80">
 <h3>Luxury Living Room</h3>
 <div class="price">$5000</div>
+<button onclick="addToCart('Luxury Living Room',5000)">Add to Cart</button>
 </div>
 
+<!-- ITEM 2 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=800&q=80">
+<h3>Modern Bedroom</h3>
+<div class="price">$3200</div>
+<button onclick="addToCart('Modern Bedroom',3200)">Add to Cart</button>
 </div>
-</div>
 
-<!-- OFFICE (EXPANDED) -->
-<div class="section" id="office">
-<h2>Office Interior Collection</h2>
-
-<div class="grid">
-
+<!-- ITEM 3 -->
 <div class="card">
 <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80">
-<h3>Startup Workspace</h3>
+<h3>Startup Office</h3>
 <div class="price">$6000</div>
+<button onclick="addToCart('Startup Office',6000)">Add to Cart</button>
 </div>
 
+<!-- ITEM 4 -->
 <div class="card">
 <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80">
-<h3>Corporate Meeting Room</h3>
+<h3>Corporate Office</h3>
 <div class="price">$8000</div>
+<button onclick="addToCart('Corporate Office',8000)">Add to Cart</button>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80">
-<h3>Executive Office</h3>
-<div class="price">$9500</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=80">
-<h3>Creative Studio Office</h3>
-<div class="price">$7000</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1524758631624-4e3b1b3b1c00?auto=format&fit=crop&w=800&q=80">
-<h3>Minimal Office Setup</h3>
-<div class="price">$6500</div>
-</div>
-
-</div>
-</div>
-
-<!-- HOTEL (EXPANDED) -->
-<div class="section" id="hotel">
-<h2>Hotel Interior Collection</h2>
-
-<div class="grid">
-
+<!-- ITEM 5 -->
 <div class="card">
 <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=800&q=80">
-<h3>Luxury Hotel Lobby</h3>
+<h3>Hotel Lobby</h3>
 <div class="price">$15000</div>
+<button onclick="addToCart('Hotel Lobby',15000)">Add to Cart</button>
 </div>
 
+<!-- ITEM 6 -->
 <div class="card">
 <img src="https://images.unsplash.com/photo-1501117716987-c8e1ecb2102a?auto=format&fit=crop&w=800&q=80">
-<h3>Deluxe Hotel Room</h3>
+<h3>Hotel Room</h3>
 <div class="price">$9000</div>
+<button onclick="addToCart('Hotel Room',9000)">Add to Cart</button>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1551887373-6c1e1c8c6a2a?auto=format&fit=crop&w=800&q=80">
-<h3>Hotel Suite Room</h3>
-<div class="price">$12000</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80">
-<h3>Modern Resort Room</h3>
-<div class="price">$11000</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80">
-<h3>Hotel Reception Desk</h3>
-<div class="price">$10000</div>
-</div>
-
-</div>
-</div>
-
-<!-- KITCHEN -->
-<div class="section" id="kitchen">
-<h2>Kitchen Interiors</h2>
-
-<div class="grid">
-
+<!-- ITEM 7 -->
 <div class="card">
 <img src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=800&q=80">
 <h3>Luxury Kitchen</h3>
 <div class="price">$6500</div>
+<button onclick="addToCart('Luxury Kitchen',6500)">Add to Cart</button>
 </div>
 
-</div>
-</div>
-
-<!-- GARDEN -->
-<div class="section" id="garden">
-<h2>Garden Designs</h2>
-
-<div class="grid">
-
+<!-- ITEM 8 -->
 <div class="card">
 <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=800&q=80">
 <h3>Modern Garden</h3>
 <div class="price">$4500</div>
+<button onclick="addToCart('Modern Garden',4500)">Add to Cart</button>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80">
-<h3>Luxury Backyard</h3>
-<div class="price">$5000</div>
+</div>
 </div>
 
+<!-- CHECKOUT -->
+<div class="checkout" id="checkout">
+<div class="checkout-box">
+<h2>Checkout</h2>
+<p>Total Amount: $<span id="finalTotal">0</span></p>
+<button onclick="alert('Order Placed!')">Confirm Order</button>
+<button class="close" onclick="closeCheckout()">Close</button>
 </div>
 </div>
 
 <footer>
-<p>© 2026 Elite Interior Design Studio</p>
+<p>© 2026 Interior Ecommerce Store</p>
 </footer>
+
+<script>
+
+let cart = [];
+
+function addToCart(name, price){
+cart.push({name, price});
+renderCart();
+}
+
+function renderCart(){
+let cartDiv = document.getElementById("cartItems");
+cartDiv.innerHTML = "";
+
+let total = 0;
+
+cart.forEach((item,i)=>{
+total += item.price;
+
+cartDiv.innerHTML += `
+<div class="cart-item">
+${item.name} - $${item.price}
+</div>
+`;
+});
+
+document.getElementById("total").innerText = total;
+}
+
+function openCheckout(){
+document.getElementById("checkout").style.display = "flex";
+document.getElementById("finalTotal").innerText = document.getElementById("total").innerText;
+}
+
+function closeCheckout(){
+document.getElementById("checkout").style.display = "none";
+}
+
+</script>
 
 </body>
 </html>
