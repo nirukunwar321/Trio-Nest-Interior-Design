@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Interior Design Store</title>
+<title>Interior + Garden Design Studio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{
 margin:0;
 font-family:Arial;
-background:#f4f4f4;
+background:#f3f3f3;
 }
 
 header{
@@ -28,7 +28,7 @@ flex-wrap:wrap;
 
 nav a{
 color:white;
-padding:12px 16px;
+padding:12px 15px;
 text-decoration:none;
 }
 
@@ -36,7 +36,7 @@ nav a:hover{background:#444;}
 
 .hero{
 height:420px;
-background:url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1600&q=80') center/cover;
+background:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80') center/cover;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -53,7 +53,7 @@ text-align:center;
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
 max-width:1200px;
 margin:auto;
@@ -80,27 +80,23 @@ object-fit:cover;
 .price{
 color:green;
 font-weight:bold;
-}
-
-.package{
-background:#fff;
-padding:15px;
-border-top:1px solid #eee;
-text-align:left;
-}
-
-.package h4{
-margin:5px 0;
+padding-bottom:10px;
 }
 
 .tag{
 display:inline-block;
-padding:3px 8px;
 background:#111;
 color:white;
+padding:4px 8px;
 font-size:12px;
-border-radius:5px;
-margin-bottom:5px;
+border-radius:4px;
+margin:5px 0;
+}
+
+.package{
+padding:10px;
+text-align:left;
+font-size:14px;
 }
 
 footer{
@@ -116,7 +112,7 @@ margin-top:40px;
 <body>
 
 <header>
-<h1>Interior Design Store</h1>
+<h1>Interior & Garden Design Studio</h1>
 </header>
 
 <nav>
@@ -124,49 +120,36 @@ margin-top:40px;
 <a href="#office">Office</a>
 <a href="#hotel">Hotel</a>
 <a href="#kitchen">Kitchen</a>
-<a href="#bath">Bathroom</a>
+<a href="#garden">Garden</a>
 </nav>
 
 <div class="hero">
-Luxury Interior Designs & Packages
+Beautiful Interiors & Outdoor Gardens
 </div>
 
 <!-- HOUSE -->
 <div class="section" id="house">
-<h2>House Designs</h2>
+<h2>House Interiors</h2>
 
 <div class="grid">
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=800&q=80">
 <h3>Modern Bedroom</h3>
-<div class="price">$3,200</div>
+<div class="price">$3200</div>
 <div class="package">
 <div class="tag">STANDARD</div>
-<h4>Includes:</h4>
-<p>Bed setup, lighting, wardrobe design</p>
+<p>Bed, lighting, wardrobe setup</p>
 </div>
 </div>
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=800&q=80">
 <h3>Luxury Living Room</h3>
-<div class="price">$5,000</div>
+<div class="price">$5000</div>
 <div class="package">
 <div class="tag">PREMIUM</div>
-<h4>Includes:</h4>
-<p>Sofa set, wall decor, smart lighting</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=800&q=80">
-<h3>Elegant Hall</h3>
-<div class="price">$4,500</div>
-<div class="package">
-<div class="tag">STANDARD</div>
-<h4>Includes:</h4>
-<p>Floor design, lighting, decor setup</p>
+<p>Sofa set, wall design, lighting</p>
 </div>
 </div>
 
@@ -175,27 +158,27 @@ Luxury Interior Designs & Packages
 
 <!-- OFFICE -->
 <div class="section" id="office">
-<h2>Office Designs</h2>
+<h2>Office Interiors</h2>
 
 <div class="grid">
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80">
 <h3>Startup Office</h3>
-<div class="price">$6,000</div>
+<div class="price">$6000</div>
 <div class="package">
 <div class="tag">BASIC</div>
-<p>Workstations + chairs setup</p>
+<p>Workstations + chairs</p>
 </div>
 </div>
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80">
 <h3>Corporate Office</h3>
-<div class="price">$8,000</div>
+<div class="price">$8000</div>
 <div class="package">
 <div class="tag">PREMIUM</div>
-<p>Meeting room + lighting + furniture</p>
+<p>Meeting room + lighting + design</p>
 </div>
 </div>
 
@@ -211,20 +194,10 @@ Luxury Interior Designs & Packages
 <div class="card">
 <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=800&q=80">
 <h3>Luxury Lobby</h3>
-<div class="price">$15,000</div>
+<div class="price">$15000</div>
 <div class="package">
 <div class="tag">LUXURY</div>
-<p>Reception + seating + lighting design</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1501117716987-c8e1ecb2102a?auto=format&fit=crop&w=800&q=80">
-<h3>Hotel Room</h3>
-<div class="price">$9,000</div>
-<div class="package">
-<div class="tag">STANDARD</div>
-<p>Bed setup + decor + lighting</p>
+<p>Reception + seating + decor</p>
 </div>
 </div>
 
@@ -233,46 +206,66 @@ Luxury Interior Designs & Packages
 
 <!-- KITCHEN -->
 <div class="section" id="kitchen">
-<h2>Kitchen Designs</h2>
+<h2>Kitchen Interiors</h2>
 
 <div class="grid">
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=800&q=80">
 <h3>Luxury Kitchen</h3>
-<div class="price">$6,500</div>
+<div class="price">$6500</div>
 <div class="package">
 <div class="tag">PREMIUM</div>
 <p>Cabinets + marble + lighting</p>
 </div>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=800&q=80">
-<h3>Modern Kitchen</h3>
-<div class="price">$4,800</div>
-<div class="package">
-<div class="tag">STANDARD</div>
-<p>Basic setup + storage + sink design</p>
 </div>
 </div>
 
-</div>
-</div>
-
-<!-- BATHROOM -->
-<div class="section" id="bath">
-<h2>Bathroom Designs</h2>
+<!-- GARDEN SECTION (NEW) -->
+<div class="section" id="garden">
+<h2>Garden & Outdoor Designs</h2>
 
 <div class="grid">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1502005229762-9c7f3a6f7a1a?auto=format&fit=crop&w=800&q=80">
-<h3>Luxury Bathroom</h3>
-<div class="price">$3,000</div>
+<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80">
+<h3>Luxury Garden Path</h3>
+<div class="price">$4000</div>
+<div class="package">
+<div class="tag">OUTDOOR</div>
+<p>Stone path + lighting + plants</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=800&q=80">
+<h3>Modern Garden Setup</h3>
+<div class="price">$4500</div>
 <div class="package">
 <div class="tag">PREMIUM</div>
-<p>Shower glass + tiles + lighting</p>
+<p>Grass design + seating area</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1472224371017-08207f84aaae?auto=format&fit=crop&w=800&q=80">
+<h3>Backyard Design</h3>
+<div class="price">$3800</div>
+<div class="package">
+<div class="tag">STANDARD</div>
+<p>Green layout + relaxation space</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80">
+<h3>Garden Lighting Setup</h3>
+<div class="price">$4200</div>
+<div class="package">
+<div class="tag">NIGHT DESIGN</div>
+<p>LED garden lights + pathways</p>
 </div>
 </div>
 
@@ -280,7 +273,7 @@ Luxury Interior Designs & Packages
 </div>
 
 <footer>
-<p>© 2026 Interior Design Store</p>
+<p>© 2026 Interior & Garden Design Studio</p>
 </footer>
 
 </body>
