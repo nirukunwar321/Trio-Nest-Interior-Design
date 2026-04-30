@@ -2,22 +2,29 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Elite Interior Business Platform</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grand Interior Design Studio</title>
 
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   background: #f4f4f4;
-  color: #222;
+  transition: 0.3s;
+}
+
+body.dark {
+  background: #111;
+  color: white;
 }
 
 header {
-  background: #111;
+  background: #000;
   color: white;
-  padding: 20px;
-  text-align: center;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 nav a {
@@ -26,55 +33,43 @@ nav a {
   text-decoration: none;
 }
 
-.hero {
-  background: url('https://images.unsplash.com/photo-1505691938895-1758d7feb511') center/cover;
-  height: 380px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 32px;
-  font-weight: bold;
-  text-shadow: 0 2px 5px black;
+.container {
+  padding: 20px;
 }
 
-.section {
-  padding: 50px;
-  text-align: center;
+/* LOGIN */
+.login-box {
+  width: 300px;
+  margin: 80px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
 }
 
-h2 {
-  margin-bottom: 20px;
+input, button {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
 }
 
-.filter-btns button {
-  padding: 10px 15px;
-  margin: 5px;
-  border: none;
-  cursor: pointer;
-  background: #111;
-  color: white;
-  border-radius: 5px;
-}
-
+/* GRID */
 .grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  gap: 15px;
 }
 
 .card {
-  width: 260px;
+  width: 250px;
   background: white;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 }
 
 .card img {
   width: 100%;
-  height: 170px;
+  height: 150px;
   object-fit: cover;
 }
 
@@ -82,185 +77,172 @@ h2 {
   margin: 10px;
 }
 
-.card p {
-  margin: 0 10px 10px;
-}
-
 .price {
   color: green;
+  margin: 10px;
   font-weight: bold;
-  margin-bottom: 10px;
 }
 
-footer {
-  background: #111;
+/* ADMIN */
+.admin {
+  display: none;
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+/* BUTTONS */
+button {
+  background: black;
   color: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
+  border: none;
+  cursor: pointer;
+}
+
+/* DARK */
+.dark .card, .dark .login-box, .dark .admin {
+  background: #222;
+  color: white;
 }
 </style>
+
 </head>
 
 <body>
 
 <header>
-  <h1>Grand Interior Design Studio</h1>
+  <div><b>Elite Interior Pro</b></div>
   <nav>
-    <a href="#home">Home</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#pricing">Pricing</a>
+    <a href="#" onclick="show('home')">Home</a>
+    <a href="#" onclick="show('admin')">Admin</a>
+    <a href="#" onclick="toggleDark()">Dark</a>
+    <a href="#" onclick="logout()">Logout</a>
   </nav>
 </header>
 
-<div class="hero" id="home">
-  Luxury House & Office Interiors
+<!-- LOGIN -->
+<div id="login" class="login-box">
+  <h3>Login</h3>
+  <input id="user" placeholder="Username">
+  <input id="pass" type="password" placeholder="Password">
+  <button onclick="login()">Login</button>
 </div>
 
-<!-- FILTER -->
-<section class="section" id="gallery">
+<!-- MAIN -->
+<div id="home" class="container" style="display:none;">
 
-<h2>Our Interior Designs</h2>
+  <h2>Interior Designs (House + Office)</h2>
 
-<div class="filter-btns">
-  <button onclick="filter('all')">All</button>
-  <button onclick="filter('house')">House</button>
-  <button onclick="filter('office')">Office</button>
-</div>
+  <input placeholder="Search designs..." onkeyup="search(this.value)">
 
-<div class="grid">
-
-  <!-- HOUSE ITEMS -->
-  <div class="card house">
-    <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6">
-    <h3>Modern Living Room</h3>
-    <p>Elegant house design</p>
-    <div class="price">$1200</div>
-  </div>
-
-  <div class="card house">
-    <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae">
-    <h3>Luxury Bedroom</h3>
-    <p>Comfort interior</p>
-    <div class="price">$1500</div>
-  </div>
-
-  <div class="card house">
-    <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36">
-    <h3>Minimal Kitchen</h3>
-    <p>Clean modern kitchen</p>
-    <div class="price">$900</div>
-  </div>
-
-  <div class="card house">
-    <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
-    <h3>Classic Hall</h3>
-    <p>Luxury house hall</p>
-    <div class="price">$1100</div>
-  </div>
-
-  <div class="card house">
-    <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858">
-    <h3>Dining Area</h3>
-    <p>Family dining setup</p>
-    <div class="price">$800</div>
-  </div>
-
-  <div class="card house">
-    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85">
-    <h3>Elegant Lounge</h3>
-    <p>Relaxing space</p>
-    <div class="price">$1300</div>
-  </div>
-
-  <!-- OFFICE ITEMS -->
-  <div class="card office">
-    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
-    <h3>Corporate Office</h3>
-    <p>Professional workspace</p>
-    <div class="price">$2000</div>
-  </div>
-
-  <div class="card office">
-    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72">
-    <h3>Startup Office</h3>
-    <p>Creative setup</p>
-    <div class="price">$1800</div>
-  </div>
-
-  <div class="card office">
-    <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36">
-    <h3>Meeting Room</h3>
-    <p>Board meeting space</p>
-    <div class="price">$1400</div>
-  </div>
-
-  <div class="card office">
-    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786">
-    <h3>Executive Cabin</h3>
-    <p>Premium office cabin</p>
-    <div class="price">$2200</div>
-  </div>
-
-  <div class="card office">
-    <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a">
-    <h3>Work Desk Area</h3>
-    <p>Modern productivity space</p>
-    <div class="price">$1000</div>
-  </div>
-
-  <div class="card office">
-    <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36">
-    <h3>Creative Studio</h3>
-    <p>Designer workspace</p>
-    <div class="price">$1700</div>
-  </div>
+  <div class="grid" id="grid"></div>
 
 </div>
-</section>
 
-<!-- PRICING -->
-<section class="section" id="pricing">
-<h2>Pricing Plans</h2>
+<!-- ADMIN -->
+<div id="admin" class="container admin">
 
-<div class="grid">
+  <h2>Admin Panel - Add Design</h2>
 
-  <div class="card">
-    <h3>Basic</h3>
-    <p>1 Room Design</p>
-    <div class="price">$500</div>
-  </div>
+  <input id="title" placeholder="Title">
+  <input id="img" placeholder="Image URL">
+  <input id="type" placeholder="house / office">
+  <input id="price" placeholder="Price">
 
-  <div class="card">
-    <h3>Standard</h3>
-    <p>Full House Design</p>
-    <div class="price">$1500</div>
-  </div>
-
-  <div class="card">
-    <h3>Premium</h3>
-    <p>House + Office</p>
-    <div class="price">$3000</div>
-  </div>
+  <button onclick="addDesign()">Add Design</button>
 
 </div>
-</section>
-
-<footer>
-  <p>© 2026 Grand Interior Design Studio</p>
-</footer>
 
 <script>
-function filter(type) {
-  let cards = document.querySelectorAll('.card');
-  cards.forEach(card => {
-    if (type === 'all') {
-      card.style.display = 'block';
-    } else {
-      card.style.display = card.classList.contains(type) ? 'block' : 'none';
-    }
+
+let designs = JSON.parse(localStorage.getItem("designs")) || [
+
+  // HOUSE
+  {t:"Luxury Living Room",img:"https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6",type:"house",p:1200},
+  {t:"Modern Bedroom",img:"https://images.unsplash.com/photo-1507089947368-19c1da9775ae",type:"house",p:1500},
+  {t:"Minimal Kitchen",img:"https://images.unsplash.com/photo-1524758631624-e2822e304c36",type:"house",p:900},
+  {t:"Elegant Hall",img:"https://images.unsplash.com/photo-1505691938895-1758d7feb511",type:"house",p:1100},
+  {t:"Dining Space",img:"https://images.unsplash.com/photo-1484154218962-a197022b5858",type:"house",p:800},
+  {t:"Luxury Lounge",img:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",type:"house",p:1300},
+
+  // OFFICE
+  {t:"Corporate Office",img:"https://images.unsplash.com/photo-1521737604893-d14cc237f11d",type:"office",p:2000},
+  {t:"Startup Office",img:"https://images.unsplash.com/photo-1497366754035-f200968a6e72",type:"office",p:1800},
+  {t:"Meeting Room",img:"https://images.unsplash.com/photo-1556761175-4b46a572b786",type:"office",p:1400},
+  {t:"Executive Cabin",img:"https://images.unsplash.com/photo-1520607162513-77705c0f0d4a",type:"office",p:2200},
+  {t:"Work Desk Area",img:"https://images.unsplash.com/photo-1521737604893-d14cc237f11d",type:"office",p:1000},
+  {t:"Creative Studio",img:"https://images.unsplash.com/photo-1524758631624-e2822e304c36",type:"office",p:1700}
+
+];
+
+let loggedIn = false;
+
+function login(){
+  let u = document.getElementById("user").value;
+  let p = document.getElementById("pass").value;
+
+  if(u === "admin" && p === "1234"){
+    loggedIn = true;
+    document.getElementById("login").style.display="none";
+    document.getElementById("home").style.display="block";
+    render();
+  } else {
+    alert("Wrong login (admin / 1234)");
+  }
+}
+
+function logout(){
+  location.reload();
+}
+
+function show(page){
+  document.getElementById("home").style.display="none";
+  document.getElementById("admin").style.display="none";
+
+  if(page==="home") document.getElementById("home").style.display="block";
+  if(page==="admin") document.getElementById("admin").style.display="block";
+}
+
+function render(list=designs){
+  let g = document.getElementById("grid");
+  g.innerHTML="";
+
+  list.forEach(d=>{
+    g.innerHTML += `
+      <div class="card">
+        <img src="${d.img}">
+        <h3>${d.t}</h3>
+        <div class="price">$${d.p}</div>
+        <small style="margin:10px;display:block">${d.type}</small>
+      </div>
+    `;
   });
 }
+
+function search(q){
+  let f = designs.filter(d=>d.t.toLowerCase().includes(q.toLowerCase()));
+  render(f);
+}
+
+function addDesign(){
+  let t = document.getElementById("title").value;
+  let img = document.getElementById("img").value;
+  let type = document.getElementById("type").value;
+  let price = document.getElementById("price").value;
+
+  designs.push({t,img,type,p:price});
+  localStorage.setItem("designs", JSON.stringify(designs));
+
+  alert("Design added!");
+}
+
+function toggleDark(){
+  document.body.classList.toggle("dark");
+}
+
+// init
+render();
+
 </script>
 
 </body>
